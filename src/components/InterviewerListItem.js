@@ -12,14 +12,14 @@ export default function InterviewerListItem(props) {
 
 
   return (
-    <li className={interviewerClass} >
+    <li className={interviewerClass} onClick={props.setInterviewer}>
       <img
-        onClick={() => props.setInterviewer(props.id)}
         className={interviewerImage}
         src={props.avatar}
-        alt={props.name}
+        alt={props.name}  
       />
       {props.name}
     </li>
+    
   );
 }
