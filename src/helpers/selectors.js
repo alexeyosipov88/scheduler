@@ -28,3 +28,12 @@ export default function getAppointmentsForDay(state, day) {
 
   return result;
 }
+
+export function getInterview(state, interview) {
+  if(!interview) {
+    return null;
+  }
+  interview.interviewer = state.interviewers[interview.interviewer];
+  return interview;
+
+}
