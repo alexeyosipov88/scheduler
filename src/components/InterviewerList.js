@@ -11,6 +11,7 @@ export default function InterviewerList(props) {
     <h4 className="interviewers__header text--light">Interviewer</h4>
     <ul className="interviewers__list">
     {interviewers.map((interviewer) => <InterviewerListItem 
+      key={interviewer.id}
       id={interviewer.id}
       avatar={interviewer.avatar}
       name={interviewer.name}
