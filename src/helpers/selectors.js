@@ -30,11 +30,14 @@ export default function getAppointmentsForDay(state, day) {
 }
 
 export function getInterview(state, interview) {
+  const result = {... interview};
   if (!interview) {
     return null;
   }
-  interview.interviewer = state.interviewers[interview.interviewer];
-  return interview;
+  
+  result.interviewer = state.interviewers[interview.interviewer];
+  
+  return result;
 
 }
 

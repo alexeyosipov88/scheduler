@@ -6,7 +6,7 @@ export default function Form(props) {
 
   const [name, setName] = useState(props.name || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
-  console.log(props.interviewers)
+  
   const reset = () => {
     setName("");
     setInterviewer(null);
@@ -17,7 +17,8 @@ export default function Form(props) {
     props.onCancel();
   }
   const save = () => {
-    props.onSave(name, interviewer)
+    const interview = props.onSave(name, interviewer);
+    props.bookInterview(props.id, interview)
   }
 
   return (
