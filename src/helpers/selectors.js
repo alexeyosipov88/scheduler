@@ -30,7 +30,7 @@ export default function getAppointmentsForDay(state, day) {
 }
 
 export function getInterview(state, interview) {
-  if(!interview) {
+  if (!interview) {
     return null;
   }
   interview.interviewer = state.interviewers[interview.interviewer];
