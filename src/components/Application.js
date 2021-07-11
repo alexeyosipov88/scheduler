@@ -20,17 +20,23 @@ export default function Application(props) {
   const dailyInterviewers = getInterviewersForDay(state, state.day);
 
   function bookInterview(id, interview) {
+    return new Promise((resolve, reject) => {
+      const appointment = {
+        ...state.appointments[id],
+        interview: { ...interview }
+      };
+      const appointments = {
+        ...state.appointments,
+        [id]: appointment
+      };
+      axios.put(`/api/appointments/${id}`, {interview})
+        .then(() => {
+          setState({... state, appointments});
+          resolve();
+        });
+    })
     
-    const appointment = {
-      ...state.appointments[id],
-      interview: { ...interview }
-    };
-    const appointments = {
-      ...state.appointments,
-      [id]: appointment
-    };
-    
-    setState({... state, appointments})
+    // setState({... state, appointments})
   }
   
   // function save(name, interviewer) {
