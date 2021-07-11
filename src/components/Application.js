@@ -15,21 +15,31 @@ export default function Application(props) {
     days: [],
     appointments: {}
   });
-
+  
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
 
   function bookInterview(id, interview) {
-    console.log(id, interview);
+    
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    
+    setState({... state, appointments})
   }
   
-  function save(name, interviewer) {
-    const interview = {
-      student: name,
-      interviewer
-    };
-    return interview;
-  }
+  // function save(name, interviewer) {
+  //   const interview = {
+  //     student: name,
+  //     interviewer
+  //   };
+  //   return interview;
+  // }
   
   const setDay = day => setState({ ...state, day });
   // const setDays = days => setState(prev => ({ ...prev, days }));
@@ -88,7 +98,7 @@ export default function Application(props) {
               interview={interview} 
               interviewers={dailyInterviewers}
               bookInterview={bookInterview}
-              save={save}
+              // save={save}
               />)
           }
           )
