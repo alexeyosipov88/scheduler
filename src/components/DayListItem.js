@@ -20,7 +20,7 @@ export default function DayListItem(props) {
     return props.spots
   }
 
-  const isFull = props.spots == 0 ? true : false;
+  const isFull = props.spots === 0 ? true : false;
 
   const dayClass = classnames(
     'day-list__item',

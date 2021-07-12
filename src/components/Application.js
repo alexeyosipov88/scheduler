@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import "components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "components/Appointment"
-import axios from "axios";
 import getAppointmentsForDay from '../helpers/selectors'
 import { getInterview } from "../helpers/selectors";
 import { getInterviewersForDay } from "../helpers/selectors";
@@ -15,6 +14,8 @@ export default function Application(props) {
     bookInterview,
     cancelInterview,
   } = useApplicationData();
+
+
 
   // const [state, setState] = useState({
   //   day: "Monday",
@@ -100,15 +101,15 @@ export default function Application(props) {
 
 
 
-
-
   return (
+      
     <main className="layout">
       <section className="sidebar">
         <img
           className="sidebar--centered"
           src="images/logo.png"
           alt="Interview Scheduler"
+          
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
