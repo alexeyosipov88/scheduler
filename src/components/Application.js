@@ -36,6 +36,9 @@ export default function Application(props) {
         setState({... state, appointments});
         resolve()
       })
+      .catch(() => {
+        reject();
+      })
 
       
     })
@@ -58,25 +61,19 @@ export default function Application(props) {
         .then(() => {
           setState({... state, appointments});
           resolve();
-        });
+        })
+        .catch(() => {
+          reject();
+        })
     })
     
-    // setState({... state, appointments})
+    
   }
   
 
-
-
-  // function save(name, interviewer) {
-  //   const interview = {
-  //     student: name,
-  //     interviewer
-  //   };
-  //   return interview;
-  // }
   
   const setDay = day => setState({ ...state, day });
-  // const setDays = days => setState(prev => ({ ...prev, days }));
+  
 
   useEffect(() => {
 
@@ -133,7 +130,7 @@ export default function Application(props) {
               interviewers={dailyInterviewers}
               bookInterview={bookInterview}
               cancelInterview={cancelInterview}
-              // save={save}
+              
               />)
           }
           )

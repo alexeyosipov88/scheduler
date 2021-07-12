@@ -8,6 +8,8 @@ import Form from "./Form";
 
 import Empty from "./Empty";
 
+import Error from "./Error";
+
 import useVisualMode from "helpers/hooks/useVisualMode";
 
 import 'components/Appointment/styles.scss';
@@ -23,6 +25,8 @@ export default function Appointment(props) {
   const CONFIRM = "CONFIRM";
   const DELETE = "DELETE";
   const EDIT = "EDIT";
+  const ERROR_SAVE = "ERROR_SAVE";
+  const ERROR_DELETE = "ERROR_DELETE";
 
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
@@ -36,13 +40,15 @@ export default function Appointment(props) {
     transition(SAVING);
     props.bookInterview(props.id, interview)
       .then(()=> transition(SHOW))
-   
+      .catch(() => transition (ERROR_SAVE, true))
+
   }
 
     function onDelete() {
-      transition(DELETE);
+      transition(DELETE, true);
       props.cancelInterview(props.id)
-        .then(() => transition(EMPTY));
+        .then(() => transition(EMPTY))
+        .catch(() => transition(ERROR_DELETE, true))
     }
   
   
@@ -62,22 +68,12 @@ export default function Appointment(props) {
       {mode === CREATE && < Form bookInterview={props.bookInterview} onSave={save} interviewers={props.interviewers} onCancel={() => back()}/>}
       {mode === SAVING && < Status message="Saving"/>}
       {mode === DELETE && < Status message="Deleting"/>}
-      {mode === CONFIRM && < Confirm onCancel={() => {back()}} onConfirm={() => {onDelete()} }/>}
+      {mode === CONFIRM && < Confirm message="Are you sure would like to delete?" onCancel={() => {back()}} onConfirm={() => {onDelete()} }/>}
       {mode === EDIT && <Form name={props.interview.student} interviewer={props.interview.interviewer.id} bookInterview={props.bookInterview} onSave={save} interviewers={props.interviewers} onCancel={() => back()}/>}
+      {mode === ERROR_SAVE && <Error onClose={() => {back()}} message={"Could not save an appontment"}/>}
+      {mode === ERROR_DELETE && <Error onClose={() => {back()}} message={"Could not cancel an appointment"}/>}
     </article>)
 
 
-  // {mode === EMPTY && <Empty onAdd={() => console.log("Clicked onAdd")} />}
-  // {mode === SHOW && (
-  //   <Show
-  //     student={props.interview.student}
-  //     interviewer={props.interview.interviewer}
-  //   />
-  // )}
-
-  // return (
-  //   <article className="appointment">
-  //     <Header time={props.time} />
-  //     {props.interview ? <Show student={props.interview.student} interviewer={props.interview.interviewer} /> : <Empty />}
-  //   </article>)
+ 
 }
