@@ -139,7 +139,6 @@ export default function Application(props) {
               interviewers={dailyInterviewers}
               bookInterview={bookInterview}
               cancelInterview={cancelInterview}
-              
               />)
           }
           )
