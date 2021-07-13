@@ -45,14 +45,6 @@ export default function Appointment(props) {
       .then(()=> transition(SHOW))
       .catch(() => transition (ERROR_SAVE, true))
     
-    // if(mode === 'EDIT') {
-    //   props.bookInterview(props.id, interview, true)
-    //   .then(()=> transition(SHOW))
-    //   .catch(() => transition (ERROR_SAVE, true))
-    // } else props.bookInterview(props.id, interview)
-    //   .then(()=> transition(SHOW))
-    //   .catch(() => transition (ERROR_SAVE, true))
-
   }
 
     function onDelete() {
