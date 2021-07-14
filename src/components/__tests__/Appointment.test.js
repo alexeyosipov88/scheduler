@@ -17,10 +17,7 @@ import Application from "components/Application";
 /*
   A test that renders a React Component
 */
-describe("Appointment", () => {
-  it("renders without crashing", () => {
-    render(<Application />);
-  });
+describe("Appointment", ()  => {
   it("calls the function with specific arguments", () => {
     const fn = jest.fn();
     fn(10);
@@ -32,6 +29,11 @@ describe("Appointment", () => {
     fn(1, 2);
     expect(fn).toHaveReturnedWith(42);
    });
+
+
+
+
+   
 
 })
 
