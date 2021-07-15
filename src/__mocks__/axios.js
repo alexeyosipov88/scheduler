@@ -52,8 +52,6 @@ const fixtures = {
     }
   }
 };
-
-
 export default {
   defaults: { baseURL: "" },
   get: jest.fn((url) => {
@@ -78,12 +76,13 @@ export default {
         data: fixtures.interviewers
       })
     }
-
   }),
   put: jest.fn((url) => {
     return Promise.resolve({status: 200,
       statusText: "No Content"})
+  }),
+  delete: jest.fn((url) => {
+    return Promise.resolve({status: 200,
+      statusText: "No Content"})
   })
-
-
 }

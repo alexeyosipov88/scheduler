@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-// import axios from "axios";
-import axios from "__mocks__/axios";
+import axios from "axios";
+// import axios from "__mocks__/axios";
 
 export default function useApplicationData() {
   const [state, setState] = useState({
