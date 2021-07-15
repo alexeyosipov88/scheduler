@@ -42,6 +42,7 @@ export default function useApplicationData() {
     })
   }
   
+// edit param in bookInterview is used to make sure that the spots are not updated when a user clicks on 'save' button
 
   function bookInterview(id, interview, edit = false) {
     return new Promise((resolve, reject) => {
