@@ -6,6 +6,9 @@ This project is a part of Lighthouse Labs Web Development Bootcamp curriculum.
 
 Install dependencies with `npm install`.
 
+## Screenshots 
+!['List of appointments"](https://github.com/alexeyosipov88/scheduler/blob/master/docs/list-of-appointments.png)
+!["Save an appointment"](https://github.com/alexeyosipov88/scheduler/blob/master/docs/save-an-appointment.png)
 ## Running Webpack Development Server
 
 ```sh
