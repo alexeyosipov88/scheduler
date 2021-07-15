@@ -1,4 +1,6 @@
 # Interview Scheduler
+A modern client application using the React view library. Interview Scheduler allows a student to book and manage an interview with a mentor. 
+This project is a part of Lighthouse Labs Web Development Bootcamp curriculum.
 
 ## Setup
 
