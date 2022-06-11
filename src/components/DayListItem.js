@@ -7,7 +7,7 @@ import "components/DayListItem.scss";
 const DayListItem = ({name, spots, setDay, selected}) => {
 
   const classObject = {
-    "day-list__item--selected": selected,
+    "day-list__item--selected": selected == name,
     "day-list__item--full": spots === 0
   }
   const dayClass = classnames("day-list__item", classObject);
