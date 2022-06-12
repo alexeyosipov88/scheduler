@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 const InterviewerList = ({interviewer, interviewers, setInterviewer}) => {
 
-  interviewers = interviewers.map(elem => <InterviewerListItem selected={interviewer === elem.id} setInterviewer={setInterviewer} key={elem.id} {... elem}/>)
+  interviewers = interviewers.map(elem => <InterviewerListItem selected={interviewer === elem.id} setInterviewer={() => setInterviewer(elem.id)} key={elem.id} {... elem}/>)
 
   return (
     <section className="interviewers">
