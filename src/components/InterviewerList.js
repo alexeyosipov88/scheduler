@@ -3,9 +3,9 @@ import InterviewerListItem from "components/InterviewerListItem";
 import "../components/InterviewerList.scss";
 import PropTypes from "prop-types";
 
-const InterviewerList = ({interviewer, interviewers, setInterviewer}) => {
+const InterviewerList = ({value, interviewers, onChange}) => {
 
-  interviewers = interviewers.map(elem => <InterviewerListItem selected={interviewer === elem.id} setInterviewer={() => setInterviewer(elem.id)} key={elem.id} {... elem}/>)
+  interviewers = interviewers.map(elem => <InterviewerListItem selected={value === elem.id} setInterviewer={() => onChange(elem.id)} key={elem.id} {... elem}/>)
 
   return (
     <section className="interviewers">

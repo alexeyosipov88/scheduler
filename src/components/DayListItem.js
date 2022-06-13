@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import "components/DayListItem.scss";
 
-const DayListItem = ({name, spots, setDate, selected}) => {
+const DayListItem = ({name, spots, setDay, selected}) => {
 
   const classObject = {
     "day-list__item--selected": selected,
@@ -26,7 +26,7 @@ const DayListItem = ({name, spots, setDate, selected}) => {
 
   
   return (
-    <li className={dayClass} onClick={setDate}>
+    <li className={dayClass} onClick={setDay}>
       <h2 className="text--regular">{name}</h2> 
       <h3 className="text--light">{formatSpots(spots)}</h3>
     </li>

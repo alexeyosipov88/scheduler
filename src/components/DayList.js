@@ -3,8 +3,7 @@ import DayListItem from "components/DayListItem"
 
 const DayList = ({days, onChange, value}) => {
   
-  days = days.map((elem) => <DayListItem selected={value === elem.name} setDate={() => onChange(elem.name)}  key={elem.id} {... elem}/>);
-  
+  days = days.map((elem) => <DayListItem selected={value === elem.name} setDay={() => onChange(elem.name)}  key={elem.id} {... elem}/>);
 
   return (
     <ul>
