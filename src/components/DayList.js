@@ -1,9 +1,10 @@
 import React from "react";
 import DayListItem from "components/DayListItem"
 
-const DayList = ({days, setDay, day}) => {
+const DayList = ({days, onChange, value}) => {
   
-  days = days.map((elem) => <DayListItem selected={day} setDay={() => setDay(elem.name)}  key={day.id} {... elem}/>);
+  days = days.map((elem) => <DayListItem selected={value === elem.name} setDate={() => onChange(elem.name)}  key={elem.id} {... elem}/>);
+  
 
   return (
     <ul>
