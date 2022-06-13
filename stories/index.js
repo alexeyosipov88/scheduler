@@ -225,9 +225,9 @@ storiesOf("Appointment", module)
   ))
   .add("Form Edit", () => (
     <Form
-      name={"Alexey Osipov"}
+      student={"Alexey Osipov"}
       interviewers={interviewers}
-      interviewer={interviewer.id}
+      interviewer={3}
       onSave={action("onSave")}
       onCancel={action("onCancel")}
     />
@@ -241,8 +241,8 @@ storiesOf("Appointment", module)
   ))
   .add("Appointment Empty", () => (
     <Fragment>
-      <Appointment id={1} time="12pm" />
-      <Appointment id="last" time="1pm" />
+      <Appointment id={1} time="4pm" />
+      <Appointment time="5pm" />
     </Fragment>
   ))
   .add("Appointment Booked", () => (

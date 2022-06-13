@@ -1,13 +1,11 @@
 
 import React from "react";
-
-// import Header from "./Header";
-
-// import Show from "./Show";
+import Header from "./Header";
+import Show from "./Show";
 
 // import Form from "./Form";
 
-// import Empty from "./Empty";
+import Empty from "./Empty";
 
 // import Error from "./Error";
   // import Status from "./Status";
@@ -17,13 +15,13 @@ import React from "react";
 
 import 'components/Appointment/styles.scss';
 
-
-
-const Appointment = (props) => {
-
+const Appointment = ({time, interview}) => {
 
     return (
-      <article className="appointment"></article>
+      <article className="appointment">
+        <Header time={time}/>
+        {interview ? <Show/> : <Empty/>}
+      </article>
 
     )
 }
