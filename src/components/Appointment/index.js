@@ -15,12 +15,15 @@ import Empty from "./Empty";
 
 import 'components/Appointment/styles.scss';
 
+
+
+
 const Appointment = ({time, interview}) => {
 
     return (
       <article className="appointment">
         <Header time={time}/>
-        {interview ? <Show/> : <Empty/>}
+        {interview ? <Show student={interview.student} interviewer={interview.interviewer}/> : <Empty/>}
       </article>
 
     )
