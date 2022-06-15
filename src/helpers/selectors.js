@@ -9,11 +9,24 @@ const getAppointmentsForDay = (state, day) => {
       return result;
     }
   }
- 
   return result;
 }
 
-export  {getAppointmentsForDay};
+
+const getInterview = (state, interview) => {
+  const result = {};
+  if(!interview) return null;
+  result.student = interview.student;
+  const interviewer = {};
+  interviewer.id = interview.interviewer;
+  interviewer.name = state.interviewers[interviewer.id].name;
+  interviewer.avatar = state.interviewers[interviewer.id].avatar;
+  result.interviewer = interviewer;
+  return result;
+}
+
+
+export  {getAppointmentsForDay, getInterview};
 
 
 
